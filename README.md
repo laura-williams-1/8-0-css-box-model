@@ -34,10 +34,40 @@ This will open the Cypress testing window, where you can click to run an individ
 
 To complete the tests in this lab, you will need to add the following styles. If you're unclear about any of the instructions below, remember that you can check the test file to see what exactly is being tested.
 
-- [ ] Set all paragraph text to have a font of ....
+**Hint**: while styling, you can use the following to help see your elements and understand their overall placement and size:
+
+```CSS
+* {
+   border: 1px solid gold;
+}
+```
+
+- [ ] Set all paragraph text to have a font of `sans-serif`
+- [ ] Set all heading text to have a font of `serif`
+- [ ] Set all heading text to be centered
+- [ ] Set all anchor tags to have no text-decoration
+- [ ] Set all anchor tags to have a color of `#4242EA`
+- [ ] Set all unordered lists to have no list-style
+- [ ] Set all span tags inside the footer to have a font-weight of 700
+- [ ] Set all paragraph text inside the element with the class of `weather` to have a font size of `40px`
+- [ ] Set all articles inside the element with the class of click-bait to have a display of inline-block
+- [ ] Set all articles inside the element with the class of click-bait to have a width of 250px
+- [ ] Set all articles inside the element with the class of click-bait to have 16px of margin and padding on all sides
+- [ ] Set all articles inside the element with the class of click-bait to have box-sizing set to border-box
+- [ ] Set all articles inside the element with the class of below-the-fold to have a display of inline-block
+- [ ] Set the image inside the element with the class of below-the-fold to have a display of inline-block
+- [ ] Set the image inside the element with the class of below-the-fold to have 16px of margin and padding on all sides
+- [ ] Set the image inside the element with the class of below-the-fold to have a width of 200px
+- [ ] Set the div inside the element with the class of below-the-fold to have a width of 500px
 
 Once your complete with the above tasks, your page should look something like the image below.
 
-![Completed lab image.](./assets/example-completed.png)
+![Completed lab image.](./assets/basic-example-completed.png)
 
 Once you've completed these tasks, continue to style your page. Consider adding specific styles to all list items, only list items under the "Libraries" heading, the introductory paragraph, and the "Hardest Bug So Far" section.
+
+## Bonus Ideas
+
+Better alignment of inline elements. There are a few ways to approach this. [Display Flex, and related properties, are recommended](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+![](./assets/bonus-example-completed.png)

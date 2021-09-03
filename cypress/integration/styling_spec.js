@@ -1,93 +1,181 @@
 describe("Styling", () => {
   describe("Text", () => {
-    it("all paragraphs have their font set to 'Helvetica, sans-serif'", () => {
+    it("all paragraphs have their font set to 'sans-serif'", () => {
       cy.get("p").each((paragraph) => {
-        cy.wrap(paragraph).should(
+        cy.wrap(paragraph).should("have.css", "font-family", "sans-serif");
+      });
+    });
+
+    it("all headings have their font set to 'serif'", () => {
+      cy.get("h1, h2, h3, h4, h5, h6").each((paragraph) => {
+        cy.wrap(paragraph).should("have.css", "font-family", "serif");
+      });
+    });
+
+    it("all headings have their text centered", () => {
+      cy.get("h1, h2, h3, h4, h5, h6").each((paragraph) => {
+        cy.wrap(paragraph).should("have.css", "text-align", "center");
+      });
+    });
+
+    it("all anchor tags have no text decoration", () => {
+      cy.get("a").each((a) => {
+        cy.wrap(a).should("have.css", "text-decoration-line", "none");
+      });
+    });
+
+    it("all unvisited anchor tags have a color of #4242EA", () => {
+      cy.get("a").each((a) => {
+        cy.wrap(a).should("have.css", "color", "rgb(66, 66, 234)");
+      });
+    });
+
+    it("all unordered lists items have no list-style", () => {
+      cy.get("li").each((li) => {
+        cy.wrap(li).should("have.css", "list-style-image", "none");
+      });
+    });
+
+    it("all span tags inside the footer have a font-weight of 700", () => {
+      cy.get("footer span").each((span) => {
+        cy.wrap(span).should("have.css", "font-weight", "700");
+      });
+    });
+
+    it("all p tags inside the element with the class of weather should have a font size of 40px", () => {
+      cy.get(".weather p").each((p) => {
+        cy.wrap(p).should("have.css", "font-size", "40px");
+      });
+    });
+  });
+
+  describe("Above the fold section", () => {
+    it("all p tags inside the element with the class of weather should have a font size of 40px", () => {
+      cy.get(".weather p").each((p) => {
+        cy.wrap(p).should("have.css", "font-size", "40px");
+      });
+    });
+
+    it("all articles inside the element with a class of 'above-the-fold' have a display of inline-block", () => {
+      cy.get(".above-the-fold article").each((article) => {
+        cy.wrap(article).should("have.css", "display", "inline-block");
+      });
+    });
+
+    // vertical-align is bonus, and better addressed using display: flex and related properties
+    // it("all articles inside the element with a class of 'above-the-fold' have a vertical-align of 'middle'", () => {
+    //   cy.get(".above-the-fold article").each((article) => {
+    //     cy.wrap(article).should("have.css", "vertical-align", "middle");
+    //   });
+    // });
+
+    it("the element with the class of 'weather' has a width of 300px", () => {
+      cy.get(".weather").each((article) => {
+        cy.wrap(article).should("have.css", "width", "300px");
+      });
+    });
+
+    it("the element with the class of 'weather' has a width of 300px", () => {
+      cy.get(".weather").each((article) => {
+        cy.wrap(article).should("have.css", "width", "300px");
+      });
+    });
+    it("the element with the class of 'weather' has a 2px gray border on all sides", () => {
+      cy.get(".weather").each((article) => {
+        cy.wrap(article).should(
           "have.css",
-          "font-family",
-          "Helvetica, sans-serif"
+          "border",
+          "2px solid rgb(128, 128, 128)"
         );
       });
     });
-
-    it("all headings have their font set to 'Gerogia, serif'", () => {
-      cy.get("h1, h2, h3, h4, h5, h6").each((paragraph) => {
-        cy.wrap(paragraph).should("have.css", "font-family", "Georgia, serif");
+    it("the element with the class of 'breaking-news' has left/right padding of 30px", () => {
+      cy.get(".breaking-news").each((article) => {
+        cy.wrap(article).should("have.css", "padding", "0px 30px");
       });
     });
-
-    it("all text inside the `body` element is centered", () => {
-      cy.get("body").should("have.css", "text-align", "center");
-    });
-  });
-
-  describe("Images", () => {
-    it("should have an image with the class 'profile-photo'", () => {
-      cy.get("img.profile-photo").should("exist");
-    });
-
-    it("should style all images with the 'profile-photo' class so they have a border that is `1px` wide, solid, and the color `blue`", () => {
-      cy.get("img.profile-photo").should(
-        "have.css",
-        "border",
-        "1px solid rgb(0, 0, 255)"
-      );
-    });
-  });
-
-  describe("Headers", () => {
-    it("should style all headers as being bold and having a blue underline", () => {
-      cy.get("h1, h2, h3, h4, h5, h6").each((heading) => {
-        cy.wrap(heading)
-          .should("have.css", "font-weight", "700")
-          .should(
-            "have.css",
-            "text-decoration",
-            "underline solid rgb(0, 0, 255)"
-          );
-      });
-    });
-
-    it("should have an `h2` with the class 'skills-header'", () => {
-      cy.get("h2.skills-header").should("exist");
-    });
-
-    it("should style the 'skills-header' class so that the text is 'rebeccapurple'", () => {
-      cy.get("h2.skills-header")
-        .should("exist")
-        .contains("Here are some of my Skills!")
-        .should("have.css", "color", "rgb(102, 51, 153)");
-    });
-  });
-
-  describe("Links", () => {
-    it("should have links be the color `red`", () => {
-      cy.get("a").each((link) => {
-        cy.wrap(link).should("have.css", "color", "rgb(255, 0, 0)");
+    it("the image inside element with the class of 'breaking-news' has a width of 200px", () => {
+      cy.get(".breaking-news img").each((img) => {
+        cy.wrap(img).should("have.css", "width", "200px");
       });
     });
   });
 
-  describe("Language list items", () => {
-    it("should have a `ul` with the class 'languages-list'", () => {
-      cy.get("ul.languages-list").should("exist");
+  describe("Click-bait section", () => {
+    it("all articles inside the element with a class of 'click-bait' have a display of 'inline-block", () => {
+      cy.get(".click-bait article").each((article) => {
+        cy.wrap(article).should("have.css", "display", "inline-block");
+      });
     });
 
-    it("should set all list items within 'languages-list' to have a globe image as a bullet point", () => {
-      cy.get(".languages-list")
-        .invoke("css", "list-style-image")
-        .should("contain", "globe.png");
+    it("all articles inside the element with a class of 'click-bait' have a width of 250px", () => {
+      cy.get(".click-bait article").each((article) => {
+        cy.wrap(article).should("have.css", "width", "250px");
+      });
     });
 
-    it("should not change any other list items", () => {
-      cy.get(".languages-list")
-        .invoke("css", "list-style-image")
-        .should("contain", "globe.png");
-
-      cy.get("ul")
-        .last()
-        .invoke("css", "list-style-image")
-        .should("not.contain", "globe.png");
+    it("all articles inside the element with a class of 'click-bait' have margin and padding on all sides of 16px", () => {
+      cy.get(".click-bait article").each((article) => {
+        cy.wrap(article).should("have.css", "margin", "16px");
+        cy.wrap(article).should("have.css", "padding", "16px");
+      });
     });
+    it("all articles inside the element with a class of 'click-bait' have box-sizing set to border-box", () => {
+      cy.get(".click-bait article").each((article) => {
+        cy.wrap(article).should("have.css", "box-sizing", "border-box");
+      });
+    });
+    // vertical-align is bonus, and better addressed using display: flex and related properties
+    // it("all articles inside the element with a class of 'click-bait' have have vertical align top", () => {
+    //   cy.get(".click-bait article").each((article) => {
+    //     cy.wrap(article).should("have.css", "vertical-align", "top");
+    //   });
+    // });
+  });
+
+  describe("Below the fold section", () => {
+    it("The img inside the element with a class of 'below-the-fold' has a display of inline-block", () => {
+      cy.get(".below-the-fold img").each((img) => {
+        cy.wrap(img).should("have.css", "display", "inline-block");
+      });
+    });
+    it("The img inside the element with a class of 'below-the-fold' have margin and padding on all sides of 16px", () => {
+      cy.get(".below-the-fold img").each((img) => {
+        cy.wrap(img).should("have.css", "margin", "16px");
+        cy.wrap(img).should("have.css", "padding", "16px");
+      });
+    });
+
+    it("The img inside the element with a class of 'below-the-fold' has a width of 200px", () => {
+      cy.get(".below-the-fold img").each((img) => {
+        cy.wrap(img).should("have.css", "width", "200px");
+      });
+    });
+
+    // vertical-align is bonus, and better addressed using display: flex and related properties
+    // it("The img inside the element with a class of 'below-the-fold' has a vertical-align middle", () => {
+    //   cy.get(".below-the-fold img").each((img) => {
+    //     cy.wrap(img).should("have.css", "vertical-align", "middle");
+    //   });
+    // });
+
+    // it("the div inside the element with a class of 'below-the-fold' has vertical align top", () => {
+    //   cy.get(".below-the-fold div").each((div) => {
+    //     cy.wrap(div).should("have.css", "display", "inline-block");
+    //   });
+    // });
+
+    it("the div inside the element with a class of 'below-the-fold' has a width of 500px", () => {
+      cy.get(".below-the-fold div").each((div) => {
+        cy.wrap(div).should("have.css", "width", "500px");
+      });
+    });
+
+    // vertical-align is bonus, and better addressed using display: flex and related properties
+    // it("the div inside the element with a class of 'below-the-fold' vertical-align middle", () => {
+    //   cy.get(".below-the-fold div").each((div) => {
+    //     cy.wrap(div).should("have.css", "vertical-align", "middle");
+    //   });
+    // });
   });
 });

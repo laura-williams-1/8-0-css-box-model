@@ -24,5 +24,5 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 before(() => {
-    cy.visit('./about.html')
-})
+  cy.visit("./index.html");
+});
