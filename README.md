@@ -1,4 +1,4 @@
-# CSS Selectors Lab
+# CSS Box Model Lab
 
 In this lab, you'll have the opportunity to design a student newsletter. The content already exists -- you just need to style it to the best of your ability!
 
