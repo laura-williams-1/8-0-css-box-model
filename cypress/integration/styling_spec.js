@@ -50,36 +50,18 @@ describe("Styling", () => {
   });
 
   describe("Above the fold section", () => {
-    it("all p tags inside the element with the class of weather should have a font size of 40px", () => {
-      cy.get(".weather p").each((p) => {
-        cy.wrap(p).should("have.css", "font-size", "40px");
-      });
-    });
-
     it("all articles inside the element with a class of 'above-the-fold' have a display of inline-block", () => {
       cy.get(".above-the-fold article").each((article) => {
         cy.wrap(article).should("have.css", "display", "inline-block");
       });
     });
 
-    // vertical-align is bonus, and better addressed using display: flex and related properties
-    // it("all articles inside the element with a class of 'above-the-fold' have a vertical-align of 'middle'", () => {
-    //   cy.get(".above-the-fold article").each((article) => {
-    //     cy.wrap(article).should("have.css", "vertical-align", "middle");
-    //   });
-    // });
-
     it("the element with the class of 'weather' has a width of 300px", () => {
       cy.get(".weather").each((article) => {
         cy.wrap(article).should("have.css", "width", "300px");
       });
     });
 
-    it("the element with the class of 'weather' has a width of 300px", () => {
-      cy.get(".weather").each((article) => {
-        cy.wrap(article).should("have.css", "width", "300px");
-      });
-    });
     it("the element with the class of 'weather' has a 2px gray border on all sides", () => {
       cy.get(".weather").each((article) => {
         cy.wrap(article).should(
@@ -89,6 +71,7 @@ describe("Styling", () => {
         );
       });
     });
+
     it("the element with the class of 'breaking-news' has left/right padding of 30px", () => {
       cy.get(".breaking-news").each((article) => {
         cy.wrap(article).should("have.css", "padding", "0px 30px");
@@ -125,12 +108,6 @@ describe("Styling", () => {
         cy.wrap(article).should("have.css", "box-sizing", "border-box");
       });
     });
-    // vertical-align is bonus, and better addressed using display: flex and related properties
-    // it("all articles inside the element with a class of 'click-bait' have have vertical align top", () => {
-    //   cy.get(".click-bait article").each((article) => {
-    //     cy.wrap(article).should("have.css", "vertical-align", "top");
-    //   });
-    // });
   });
 
   describe("Below the fold section", () => {
@@ -152,30 +129,10 @@ describe("Styling", () => {
       });
     });
 
-    // vertical-align is bonus, and better addressed using display: flex and related properties
-    // it("The img inside the element with a class of 'below-the-fold' has a vertical-align middle", () => {
-    //   cy.get(".below-the-fold img").each((img) => {
-    //     cy.wrap(img).should("have.css", "vertical-align", "middle");
-    //   });
-    // });
-
-    // it("the div inside the element with a class of 'below-the-fold' has vertical align top", () => {
-    //   cy.get(".below-the-fold div").each((div) => {
-    //     cy.wrap(div).should("have.css", "display", "inline-block");
-    //   });
-    // });
-
     it("the div inside the element with a class of 'below-the-fold' has a width of 500px", () => {
       cy.get(".below-the-fold div").each((div) => {
         cy.wrap(div).should("have.css", "width", "500px");
       });
     });
-
-    // vertical-align is bonus, and better addressed using display: flex and related properties
-    // it("the div inside the element with a class of 'below-the-fold' vertical-align middle", () => {
-    //   cy.get(".below-the-fold div").each((div) => {
-    //     cy.wrap(div).should("have.css", "vertical-align", "middle");
-    //   });
-    // });
   });
 });
