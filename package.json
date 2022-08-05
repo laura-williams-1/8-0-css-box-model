@@ -4,7 +4,8 @@
   "description": "In this lab, you'll have the opportunity to design a student newsletter. The content already exists -- you just need to style it to the best of your ability!",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cypress open"
+    "start": "live-server --port=5001 .",
+    "test": "npx cypress open"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/joinpursuit/8-0-css-box-model#readme",
   "devDependencies": {
-    "cypress": "^8.3.1"
+    "cypress": "9.7.0",
+    "cypress-watch-and-reload": "1.10.3",
+    "live-server": "1.1.0"
   }
 }
